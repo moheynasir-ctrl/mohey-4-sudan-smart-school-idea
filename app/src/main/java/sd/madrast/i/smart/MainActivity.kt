@@ -1,8 +1,6 @@
 package sd.madrast.i.smart
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
@@ -19,34 +17,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         webView = findViewById(R.id.webView)
-
         with(webView.settings) {
             javaScriptEnabled = true
             domStorageEnabled = true
             databaseEnabled = true
             allowFileAccess = true
-            allowContentAccess = true
-            cacheMode = WebSettings.LOLOAD_DEFAULT
+            cacheMode = WebSettings.LOAD_DEFAULT
             mediaPlaybackRequiresUserGesture = false
         }
 
         webView.webChromeClient = WebChromeClient()
-        webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                val uri = Uri.parse(url ?: return false)
-                return if (uri.scheme == "http" || uri.scheme == "https") {
-                    if (uri.host?.endsWith("github.io") == true) {
-                        false
-                    } else {
-                        startActivity(Intent(Intent.ACTION_VIEW, uri))
-                        true
-                    }
-                } else {
-                    false
-                }
-            }
-        }
-
+        webView.webViewClient = WebViewClient()
         webView.loadUrl("file:///android_asset/index.html")
     }
 
