@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خطتي اليومية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#eef3f0;--card:#fff;--ink:#10252b;--mute:#5d7077;--line:#d5e0dc;--g:#1c7a4a;--g2:#dff1e7;--gold:#e0a42b;--red:#c23b32;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a1d;--card:#16262a;--ink:#e8f1ee;--mute:#93a8ae;--line:#264047;--g:#4ec988;--g2:#16352a;--gold:#f0bb4a;--red:#ee7a70}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif;line-height:1.6;min-height:100vh}
+main{max-width:480px;margin:0 auto;padding:18px 16px 40px}
+h1{font-size:26px;font-weight:800;margin:0 0 4px}
+h2{font-size:18px;margin:0 0 10px}
+p{margin:0}.mute{color:var(--mute);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:7px 14px;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--g);border-color:var(--g);color:#fff;font-weight:700}
+.lvl{margin:12px 0 6px;font-weight:700;font-size:15px}
+.cta{width:100%;margin-top:16px;background:var(--g);color:#fff;border:0;border-radius:14px;padding:13px;font-size:17px;font-weight:800}
+.cta[disabled]{opacity:.45;cursor:not-allowed}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.link{background:none;border:0;color:var(--g);font-weight:700;padding:4px 0;font-size:14px}
+.hero{display:flex;align-items:center;gap:16px}
+.ring{width:96px;height:96px;flex:none}
+.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:var(--g2)}.ring .fg{stroke:var(--g);stroke-linecap:round;transition:stroke-dashoffset .4s}
+.ring text{font-family:inherit;font-weight:800;font-size:22px;fill:var(--ink)}
+.streak{display:inline-flex;align-items:center;gap:6px;background:var(--g2);color:var(--g);border-radius:999px;padding:3px 12px;font-weight:800;font-size:14px;margin-top:6px}
+ol{list-style:none;margin:0;padding:0;position:relative}
+ol::before{content:"";position:absolute;inset-block:12px;inset-inline-start:41px;width:2px;background:var(--line)}
+li{display:flex;gap:12px;align-items:stretch;padding:8px 0;position:relative}
+.t{width:34px;flex:none;font-size:13px;color:var(--mute);padding-top:14px;text-align:center}
+.dot{width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--line);flex:none;margin-top:16px;z-index:1}
+li.done .dot{background:var(--g);border-color:var(--g)}
+.s{flex:1;text-align:start;background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+li.done .s{background:var(--g2);border-color:var(--g)}
+li.done .name{text-decoration:line-through;opacity:.7}
+.name{font-weight:700;font-size:16px;display:block}
+.sub{font-size:13px;color:var(--mute)}
+.tick{width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;flex:none;font-weight:800;color:#fff}
+li.done .tick{background:var(--g);border-color:var(--g)}
+.week{display:flex;justify-content:space-between;gap:4px;margin-top:6px}
+.day{flex:1;text-align:center;font-size:12px;color:var(--mute)}
+.bar{height:44px;display:flex;align-items:flex-end;justify-content:center}
+.bar i{display:block;width:70%;border-radius:6px 6px 3px 3px;background:var(--line);min-height:5px}
+.day.on .bar i{background:var(--g)}.day.today{color:var(--ink);font-weight:800}
+.msg{margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--g2);color:var(--g);font-weight:700;display:none}
+.msg.show{display:block}
+.lp{margin:0 0 10px;font-size:16px;line-height:1.9}.qq{margin:14px 0}.qt{font-weight:700;margin-bottom:8px}.fb{font-size:13px;color:var(--red);margin-top:6px}
+main{padding-bottom:100px}
+nav#tabs{position:fixed;left:0;right:0;bottom:0;display:flex;gap:4px;background:var(--card);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+#tabs button{flex:1;border:0;background:none;padding:10px 4px;font-size:15px;font-weight:700;color:var(--mute);border-radius:12px}
+#tabs button[aria-current="true"]{color:var(--g);background:var(--g2)}
+.big{font-size:34px;font-weight:800;color:var(--g)}
+span.chip[aria-pressed="false"]{opacity:.45}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+
+<section id="setup">
+  <h1>ابنِ خطتك اليومية</h1>
+  <p class="mute">اختر صفك وعدد ساعات المذاكرة، وتظهر لك جلسات اليوم جاهزة.</p>
+  <div class="card">
+    <h2>الصف</h2>
+    <div class="lvl">مرحلة الأساس</div>
+    <div class="chips" id="gb"></div>
+    <div class="lvl">المرحلة الثانوية</div>
+    <div class="chips" id="gs"></div>
+  </div>
+  <div class="card">
+    <h2>كم ساعة تذاكر يوميًا؟</h2>
+    <div class="chips" id="hrs"></div>
+  </div>
+  <button class="cta" id="go" disabled>أنشئ خطة اليوم</button>
+</section>
+
+<section id="plan" hidden>
+  <div class="top">
+    <div><h1 id="gname"></h1><p class="mute" id="dateline"></p></div>
+    <button class="link" id="edit">تغيير الصف</button>
+  </div>
+  <div class="card hero">
+    <svg class="ring" viewBox="0 0 100 100" role="img" aria-label="تقدم اليوم">
+      <circle class="bg" cx="50" cy="50" r="42"/>
+      <circle class="fg" id="fg" cx="50" cy="50" r="42" transform="rotate(-90 50 50)" stroke-dasharray="264" stroke-dashoffset="264"/>
+      <text id="pct" x="50" y="58" text-anchor="middle">٠٪</text>
+    </svg>
+    <div>
+      <h2 id="head" style="margin:0"></h2>
+      <p class="mute" id="mins"></p>
+      <span class="streak" id="streak"></span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>جلسات اليوم</h2>
+    <ol id="list"></ol>
+    <div class="msg" id="msg">أحسنت! أكملت خطة اليوم. نراك غدًا.</div>
+  </div>
+  <div class="card">
+    <h2>آخر ٧ أيام</h2>
+    <div class="week" id="week"></div>
+  </div>
+</section>
+
+<section id="lesson" hidden></section>
+<section id="lib" hidden></section>
+<section id="exam" hidden></section>
+<section id="prog" hidden></section>
+
+</main>
+<nav id="tabs" hidden><button data-t="plan">الخطة</button><button data-t="lib">الدروس</button><button data-t="exam">الامتحان</button><button data-t="prog">تقدمي</button></nav>
+<script>
+(function(){
+var ar="٠١٢٣٤٥٦٧٨٩";
+function n(x){return String(x).replace(/\d/g,function(d){return ar[d]})}
+var basic=["الأول","الثاني","الثالث","الرابع","الخامس","السادس","السابع","الثامن"].map(function(x){return{k:"b"+x,t:"الصف "+x,sec:false}});
+var sec=["الأول","الثاني","الثالث"].map(function(x){return{k:"s"+x,t:"الثانوي "+x,sec:true}});
+var SUB_B=["اللغة العربية","الرياضيات","اللغة الإنجليزية","العلوم","التربية الإسلامية","الاجتماعيات"];
+var SUB_S=["اللغة العربية","اللغة الإنجليزية","الرياضيات","الفيزياء","الكيمياء","الأحياء","التربية الإسلامية"];
+var DAYS=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+var $=function(i){return document.getElementById(i)};
+var st={grade:null,hours:2,log:{}};
+function load(){try{var r=localStorage.getItem("plan");if(r){var o=JSON.parse(r);if(o&&o.grade)st=o}}catch(e){}}
+function save(){try{localStorage.setItem("plan",JSON.stringify(st))}catch(e){}}
+function key(d){return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function find(k){return basic.concat(sec).filter(function(g){return g.k===k})[0]}
+var pick=null,pickH=2;
+function chips(box,items,sel,fn){
+  box.innerHTML="";
+  items.forEach(function(it){
+    var b=document.createElement("button");b.className="chip";b.textContent=it.t;
+    b.setAttribute("aria-pressed",String(sel(it)));
+    b.onclick=function(){fn(it)};box.appendChild(b);
+  });
+}
+function drawSetup(){
+  chips($("gb"),basic,function(g){return pick===g.k},function(g){pick=g.k;drawSetup()});
+  chips($("gs"),sec,function(g){return pick===g.k},function(g){pick=g.k;drawSetup()});
+  chips($("hrs"),[1,2,3,4].map(function(h){return{k:h,t:n(h)+(h===1?" ساعة":" ساعات")}}),function(h){return pickH===h.k},function(h){pickH=h.k;drawSetup()});
+  $("go").disabled=!pick;
+}
+function sessions(g,hours,d){
+  var subs=g.sec?SUB_S:SUB_B,total=hours*2,start=(d.getDay()*2+Math.floor(d.getDate()/7))%subs.length,out=[];
+  for(var i=0;i<total;i++)out.push(subs[(start+i)%subs.length]);
+  return out;
+}
+function clock(i){var m=16*60+i*40,h=Math.floor(m/60),mm=m%60;h=h>12?h-12:h;return n(h)+":"+n(("0"+mm).slice(-2))}
+function streakCount(){
+  var c=0,d=new Date(),r=st.log[key(d)];
+  if(!(r&&r.done>=r.total&&r.total>0))d.setDate(d.getDate()-1);
+  for(;;){var e=st.log[key(d)];if(e&&e.total>0&&e.done>=e.total){c++;d.setDate(d.getDate()-1)}else break}
+  return c;
+}
+function drawPlan(){
+  var g=find(st.grade),d=new Date(),k=key(d),list=sessions(g,st.hours,d);
+  var rec=st.log[k];
+  if(!rec||rec.total!==list.length||rec.grade!==st.grade)rec=st.log[k]={grade:st.grade,total:list.length,done:0,marks:[]};
+  $("gname").textContent=g.t;
+  $("dateline").textContent=DAYS[d.getDay()]+"، "+n(d.getDate())+"/"+n(d.getMonth()+1);
+  var ol=$("list");ol.innerHTML="";
+  list.forEach(function(s,i){
+    var li=document.createElement("li"),on=rec.marks.indexOf(i)>-1;
+    if(on)li.className="done";
+    li.innerHTML='<span class="t">'+clock(i)+'</span><span class="dot"></span><button class="s" aria-pressed="'+on+'"><span><span class="name"></span><span class="sub">درس ثم اختبار قصير · ٣٠ دقيقة</span></span><span class="tick">'+(on?"✓":"")+'</span></button>';
+    li.querySelector(".name").textContent=s;
+    li.querySelector("button").onclick=function(){openLesson(s,i,rec)};
+    ol.appendChild(li);
+  });
+  var pc=Math.round(rec.done/rec.total*100);
+  $("fg").style.strokeDashoffset=String(264-264*pc/100);
+  $("pct").textContent=n(pc)+"٪";
+  $("head").textContent=rec.done+""===rec.total+""?"اكتملت الخطة":"أنجزت "+n(rec.done)+" من "+n(rec.total);
+  $("mins").textContent="بقي "+n((rec.total-rec.done)*30)+" دقيقة";
+  $("streak").textContent="أيام متتالية: "+n(streakCount());
+  $("msg").className="msg"+(pc===100?" show":"");
+  var w=$("week");w.innerHTML="";
+  for(var j=6;j>=0;j--){
+    var dd=new Date();dd.setDate(dd.getDate()-j);
+    var e=st.log[key(dd)],h=e&&e.total?Math.round(e.done/e.total*100):0;
+    var div=document.createElement("div");
+    div.className="day"+(h===100?" on":"")+(j===0?" today":"");
+    div.innerHTML='<div class="bar"><i style="height:'+Math.max(h,8)+'%"></i></div>'+DAYS[dd.getDay()].slice(0,3);
+    w.appendChild(div);
+  }
+  save();
+}
+var LESSONS={
+"الرياضيات":{t:"الكسور البسيطة",b:["الكسر جزء من كل. إذا قُسمت كعكة إلى ٤ أجزاء متساوية وأخذت جزءًا واحدًا فقد أخذت ١/٤.","العدد الأعلى في الكسر هو البسط، والعدد الأسفل هو المقام، والمقام يخبرنا بعدد الأجزاء المتساوية."],q:[["كيف نكتب النصف؟",["١/٢","٢/١","١/٤"],0],["ما مقام الكسر ٣/٤؟",["٣","٤","٧"],1],["أيهما أكبر؟",["١/٢","١/٤","متساويان"],0]]},
+"العلوم":{t:"حالات المادة",b:["للمادة ثلاث حالات: صلبة وسائلة وغازية. الحجر مادة صلبة، والماء مادة سائلة، وبخار الماء غاز.","عند التسخين يذوب الجليد فيصير ماءً، وعند التبريد الشديد يتجمد الماء فيصير جليدًا."],q:[["ماذا يحدث للماء عند تجمده؟",["يصير جليدًا","يصير بخارًا","لا يتغير"],0],["بخار الماء حالته؟",["صلبة","سائلة","غازية"],2],["ماذا يحدث للجليد عند تسخينه؟",["يذوب","يتجمد أكثر","يختفي دون أثر"],0]]},
+"اللغة العربية":{t:"الجملة الاسمية والفعلية",b:["الجملة الاسمية تبدأ باسم، مثل: الشمسُ مشرقةٌ.","الجملة الفعلية تبدأ بفعل، مثل: ذهبَ الولدُ إلى المدرسة."],q:[["نوع الجملة: ذهبَ الولدُ",["اسمية","فعلية","شبه جملة"],1],["نوع الجملة: الشمسُ مشرقةٌ",["اسمية","فعلية","استفهامية"],0],["بماذا تبدأ الجملة الفعلية؟",["باسم","بحرف","بفعل"],2]]},
+"اللغة الإنجليزية":{t:"Present simple",b:["نستخدم المضارع البسيط للعادات والحقائق، مثل: I play football on Fridays.","مع الفاعل المفرد (he / she / it) نضيف s أو es إلى الفعل: She goes to school."],q:[["اختر الجملة الصحيحة",["She go to school","She goes to school","She going to school"],1],["اختر الجملة الصحيحة",["They plays football","They play football","They playing football"],1],["جمع كلمة book هو",["books","bookes","bookies"],0]]},
+"التربية الإسلامية":{t:"أركان الإسلام",b:["أركان الإسلام خمسة: الشهادتان، والصلاة، والزكاة، وصوم رمضان، وحج البيت لمن استطاع إليه سبيلًا."],q:[["كم عدد أركان الإسلام؟",["ثلاثة","خمسة","ستة"],1],["أول أركان الإسلام",["الصلاة","الزكاة","الشهادتان"],2],["في أي شهر نصوم؟",["رمضان","شعبان","ذو الحجة"],0]]},
+"الاجتماعيات":{t:"السودان وموقعه",b:["يقع السودان في شمال شرق قارة أفريقيا، وعاصمته الخرطوم.","يلتقي النيل الأزرق بالنيل الأبيض عند الخرطوم فيكوّنان نهر النيل."],q:[["ما عاصمة السودان؟",["الخرطوم","بورتسودان","كسلا"],0],["في أي قارة يقع السودان؟",["آسيا","أفريقيا","أوروبا"],1],["أين يلتقي النيلان الأزرق والأبيض؟",["عند الخرطوم","عند دنقلا","عند الأبيض"],0]]},
+"الفيزياء":{t:"السرعة",b:["السرعة = المسافة ÷ الزمن. وتُقاس عادةً بوحدة كم/س أو م/ث.","مثال: سيارة قطعت ١٠٠ كم في ساعتين، فسرعتها ١٠٠ ÷ ٢ = ٥٠ كم/س."],q:[["قانون السرعة هو",["المسافة ÷ الزمن","الزمن ÷ المسافة","المسافة × الزمن"],0],["قطع قطار ٩٠ كم في ساعة ونصف. سرعته؟",["٤٥ كم/س","٦٠ كم/س","١٣٥ كم/س"],1],["من وحدات السرعة",["كم/س","كجم","لتر"],0]]},
+"الكيمياء":{t:"تركيب الذرة",b:["تتكون الذرة من نواة في المركز تحتوي على البروتونات الموجبة والنيوترونات المتعادلة، وتدور حولها الإلكترونات السالبة."],q:[["أي الجسيمات سالب الشحنة؟",["البروتون","النيوترون","الإلكترون"],2],["ما الذي يوجد في النواة؟",["بروتونات ونيوترونات","إلكترونات فقط","إلكترونات ونيوترونات"],0],["النيوترون شحنته",["موجبة","متعادلة","سالبة"],1]]},
+"الأحياء":{t:"الخلية",b:["الخلية هي وحدة البناء الأساسية في جميع الكائنات الحية.","تحتوي الخلية النباتية على بلاستيدات خضراء تصنع الغذاء بالبناء الضوئي، والنواة هي التي تتحكم في أنشطة الخلية."],q:[["وحدة بناء الكائن الحي هي",["الذرة","الخلية","العضو"],1],["أين توجد البلاستيدات الخضراء؟",["الخلية النباتية","الخلية الحيوانية فقط","لا توجد في الخلايا"],0],["ما الذي يتحكم في أنشطة الخلية؟",["الغشاء","النواة","الجدار"],1]]}
+};
+function openLesson(s,i,rec){
+  var L=LESSONS[s],box=$("lesson"),ans=[],fbs=[],chk;
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
+  box.innerHTML="";
+  var back=el("button","link","← العودة للخطة");back.onclick=function(){if(rec){show("plan");drawPlan()}else tab("lib")};
+  box.appendChild(back);box.appendChild(el("h1","",L.t));box.appendChild(el("p","mute",s));
+  var c=el("div","card");L.b.forEach(function(p){c.appendChild(el("p","lp",p))});box.appendChild(c);
+  var qc=el("div","card");qc.appendChild(el("h2","","اختبار قصير"));
+  L.q.forEach(function(q,qi){
+    var w=el("div","qq"),o=el("div","chips");w.appendChild(el("p","qt",n(qi+1)+") "+q[0]));
+    q[1].forEach(function(t,oi){
+      var b=el("button","chip",t);b.dir="auto";b.setAttribute("aria-pressed","false");
+      b.onclick=function(){ans[qi]=oi;[].forEach.call(o.children,function(x,k){x.setAttribute("aria-pressed",String(k===oi))});chk.disabled=Object.keys(ans).length<L.q.length};
+      o.appendChild(b);
+    });
+    fbs[qi]=el("p","fb");w.appendChild(o);w.appendChild(fbs[qi]);qc.appendChild(w);
+  });
+  chk=el("button","cta","تحقق من إجاباتي");chk.disabled=true;
+  var res=el("div","msg");
+  chk.onclick=function(){
+    var sc=0;
+    L.q.forEach(function(q,qi){if(ans[qi]===q[2]){sc++;fbs[qi].textContent=""}else{fbs[qi].textContent="الإجابة الصحيحة: "+q[1][q[2]];st.weak[s]=(st.weak[s]||0)+1}});
+    res.className="msg show";
+    res.textContent="نتيجتك: "+n(sc)+" من "+n(L.q.length)+(sc>=2?(rec?". أُنجزت الجلسة.":". أحسنت!"):". راجع الدرس وأعد المحاولة.");
+    if(sc>=2&&rec&&rec.marks.indexOf(i)<0){rec.marks.push(i);rec.done=rec.marks.length;st.pts+=10;if(rec.done>=rec.total&&!rec.bonus){rec.bonus=1;st.pts+=20}}save()
+  };
+  qc.appendChild(chk);qc.appendChild(res);box.appendChild(qc);
+  box.appendChild(el("p","mute","هذا درس تجريبي لعرض الفكرة، وليس من كتب وزارة التربية."));
+  show("lesson");window.scrollTo(0,0);
+}
+function subs(){return find(st.grade).sec?SUB_S:SUB_B}
+function mk(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
+function drawLib(){
+  var b=$("lib");b.innerHTML="";b.appendChild(mk("h1","","الدروس والملخصات"));b.appendChild(mk("p","mute",find(st.grade).t));
+  subs().forEach(function(s){
+    var c=mk("button","card s");c.style.width="100%";
+    var w=mk("span");w.appendChild(mk("span","name",s));w.appendChild(mk("span","sub",LESSONS[s].t+" · ملخص واختبار قصير"));
+    c.appendChild(w);c.onclick=function(){openLesson(s,-1,null)};b.appendChild(c);
+  });
+}
+function drawExam(){
+  var b=$("exam"),qs=[],ans={},go,res=mk("div","msg"),card=mk("div","card");
+  b.innerHTML="";b.appendChild(mk("h1","","الامتحان الشهري"));
+  b.appendChild(mk("p","mute","أسئلة من كل مواد "+find(st.grade).t+". كل إجابة صحيحة تعطيك ٥ نقاط."));
+  subs().forEach(function(s){LESSONS[s].q.slice(0,2).forEach(function(q){qs.push([s,q])})});
+  qs.forEach(function(x,qi){
+    var q=x[1],w=mk("div","qq"),o=mk("div","chips");w.appendChild(mk("p","qt",n(qi+1)+") "+q[0]));
+    q[1].forEach(function(tx,oi){
+      var c=mk("button","chip",tx);c.dir="auto";c.setAttribute("aria-pressed","false");
+      c.onclick=function(){ans[qi]=oi;[].forEach.call(o.children,function(y,k){y.setAttribute("aria-pressed",String(k===oi))});go.disabled=Object.keys(ans).length<qs.length};
+      o.appendChild(c);
+    });
+    w.appendChild(o);card.appendChild(w);
+  });
+  go=mk("button","cta","سلّم الامتحان");go.disabled=true;
+  go.onclick=function(){
+    var sc=0,pc;
+    qs.forEach(function(x,qi){if(ans[qi]===x[1][2])sc++;else st.weak[x[0]]=(st.weak[x[0]]||0)+1});
+    pc=Math.round(sc/qs.length*100);st.exams.push(pc);st.pts+=sc*5;save();go.disabled=true;
+    res.className="msg show";res.textContent="درجتك: "+n(sc)+" من "+n(qs.length)+" ("+n(pc)+"٪). حصلت على "+n(sc*5)+" نقطة.";
+  };
+  card.appendChild(go);card.appendChild(res);b.appendChild(card);
+}
+function drawProg(){
+  var b=$("prog"),lv=Math.floor(st.pts/100)+1,days=0,sess=0;
+  Object.keys(st.log).forEach(function(k){var r=st.log[k];sess+=r.done;if(r.total&&r.done>=r.total)days++});
+  var sk=streakCount(),ex=st.exams.length?st.exams[st.exams.length-1]:null;
+  var weak=Object.keys(st.weak).sort(function(a,c){return st.weak[c]-st.weak[a]})[0];
+  var bd=[[sess>=1,"أول جلسة"],[days>=1,"يوم مكتمل"],[sk>=3,"٣ أيام متتالية"],[st.exams.length>0,"أول امتحان"],[st.pts>=100,"١٠٠ نقطة"]];
+  b.innerHTML='<h1>تقدمي</h1><div class="card"><h2>محفظة النقاط</h2><p class="big">'+n(st.pts)+' نقطة</p><p class="mute">المستوى '+n(lv)+' · تبقى '+n(100-st.pts%100)+' نقطة للمستوى التالي</p></div>'
+  +'<div class="card"><h2>إنجازاتك</h2><p>جلسات منجزة: '+n(sess)+'<br>أيام مكتملة: '+n(days)+'<br>أيام متتالية: '+n(sk)+'<br>آخر امتحان: '+(ex===null?'لم تمتحن بعد':n(ex)+'٪')+'</p></div>'
+  +'<div class="card"><h2>مرشدك</h2><p>'+(weak?'ركّز على مادة '+weak+': أخطأت فيها أكثر من غيرها. افتحها من تبويب الدروس وراجع الملخص.':'ابدأ جلسات اليوم، وسأخبرك أي مادة تحتاج مراجعة بعد أول اختبار.')+'</p></div>'
+  +'<div class="card"><h2>الأوسمة</h2><div class="chips">'+bd.map(function(x){return '<span class="chip" aria-pressed="'+x[0]+'">'+x[1]+'</span>'}).join("")+'</div></div>';
+}
+function tab(p){if(p==="plan")drawPlan();else if(p==="lib")drawLib();else if(p==="exam")drawExam();else drawProg();show(p);window.scrollTo(0,0)}
+function show(p){
+  ["setup","plan","lesson","lib","exam","prog"].forEach(function(v){$(v).hidden=v!==p});
+  $("tabs").hidden=p==="setup";
+  [].forEach.call($("tabs").children,function(x){x.setAttribute("aria-current",String(x.dataset.t===p))});
+}
+$("go").onclick=function(){st.grade=pick;st.hours=pickH;save();show("plan");drawPlan()};
+$("edit").onclick=function(){pick=st.grade;pickH=st.hours;drawSetup();show("setup")};
+load();st.pts=st.pts||0;st.weak=st.weak||{};st.exams=st.exams||[];
+[].forEach.call($("tabs").children,function(x){x.onclick=function(){tab(x.dataset.t)}});
+if(st.grade){pick=st.grade;pickH=st.hours;show("plan");drawPlan()}else{drawSetup();show("setup")}
+})();
+</script>
+</body>
+</html>
