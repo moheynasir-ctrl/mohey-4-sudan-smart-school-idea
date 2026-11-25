@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="واجهات مدرستي الذكية">
+  <rect width="1200" height="800" fill="#EEF3F0"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#10252B" direction="rtl">واجهات المستخدمين</text>
+
+  <g transform="translate(50 120)">
+    <rect width="260" height="520" rx="32" fill="#FFFFFF" stroke="#D5E0DC" stroke-width="3"/>
+    <text x="130" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#10252B">الطالب</text>
+    <rect x="35" y="85" width="190" height="62" rx="16" fill="#DFF1E7"/>
+    <text x="130" y="123" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#1C7A4A">خطتي اليومية</text>
+    <rect x="35" y="165" width="190" height="62" rx="16" fill="#F2F6F4"/>
+    <text x="130" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#10252B">الدروس</text>
+    <rect x="35" y="245" width="190" height="62" rx="16" fill="#F2F6F4"/>
+    <text x="130" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#10252B">الامتحانات</text>
+    <circle cx="130" cy="395" r="58" fill="#DFF1E7"/>
+    <text x="130" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#1C7A4A">80٪</text>
+  </g>
+
+  <g transform="translate(355 120)">
+    <rect width="260" height="520" rx="32" fill="#FFFFFF" stroke="#D5E0DC" stroke-width="3"/>
+    <text x="130" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#10252B">المعلم</text>
+    <rect x="35" y="85" width="190" height="62" rx="16" fill="#DFF1E7"/>
+    <text x="130" y="123" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#1C7A4A">طلاب الصف</text>
+    <rect x="35" y="165" width="190" height="62" rx="16" fill="#F2F6F4"/>
+    <text x="130" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#10252B">إرسال إعلان</text>
+    <rect x="35" y="245" width="190" height="62" rx="16" fill="#F2F6F4"/>
+    <text x="130" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#10252B">نتائج التقدم</text>
+    <rect x="35" y="350" width="190" height="100" rx="16" fill="#10252B"/>
+    <text x="130" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#FFFFFF">24 طالبًا نشطًا</text>
+    <text x="130" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#4EC988">اليوم</text>
+  </g>
+
+  <g transform="translate(660 120)">
+    <rect width="490" height="520" rx="32" fill="#FFFFFF" stroke="#D5E0DC" stroke-width="3"/>
+    <text x="245" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#10252B">ولي الأمر والمدير</text>
+
+    <rect x="35" y="85" width="420" height="94" rx="18" fill="#F2F6F4"/>
+    <circle cx="95" cy="132" r="32" fill="#DFF1E7"/>
+    <text x="150" y="126" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#10252B">متابعة التقدم</text>
+    <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5D7077">الجلسات والامتحانات والنقاط</text>
+
+    <rect x="35" y="195" width="420" height="94" rx="18" fill="#F2F6F4"/>
+    <circle cx="95" cy="242" r="32" fill="#F7F1D8"/>
+    <text x="150" y="236" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#10252B">نظرة المدرسة</text>
+    <text x="150" y="262" font-family="Arial, sans-serif" font-size="16" fill="#5D7077">الطلاب ا��نشطون والصفوف</text>
+
+    <rect x="35" y="305" width="420" height="150" rx="18" fill="#10252B"/>
+    <text x="245" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#FFFFFF">ملخص متكامل</text>
+    <text x="245" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#4EC988">متصل · آمن · واضح</text>
+  </g>
+</svg>

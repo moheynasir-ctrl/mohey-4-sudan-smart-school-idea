@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="مدرستي الذكية">
+  <rect width="1400" height="800" fill="#EEF3F0"/>
+  <rect x="70" y="70" width="1260" height="660" rx="38" fill="#FFFFFF"/>
+  <circle cx="1220" cy="150" r="180" fill="#DFF1E7"/>
+  <circle cx="180" cy="680" r="160" fill="#F7F1D8"/>
+
+  <text x="130" y="145" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#10252B">مدرستي الذكية</text>
+  <text x="130" y="195" font-family="Arial, sans-serif" font-size="25" fill="#5D7077">تعلم منظّم للمدارس السودانية</text>
+
+  <g transform="translate(130 245)">
+    <rect width="520" height="405" rx="28" fill="#F8FBF9" stroke="#D5E0DC" stroke-width="3"/>
+    <text x="40" y="58" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#10252B">خطة اليوم</text>
+
+    <g transform="translate(40 90)">
+      <circle cx="58" cy="58" r="58" fill="#DFF1E7"/>
+      <circle cx="58" cy="58" r="42" fill="none" stroke="#1C7A4A" stroke-width="12" stroke-dasharray="210 264" transform="rotate(-90 58 58)"/>
+      <text x="58" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#10252B">75٪</text>
+    </g>
+
+    <rect x="185" y="96" width="295" height="72" rx="18" fill="#FFFFFF" stroke="#D5E0DC"/>
+    <text x="210" y="126" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#10252B">أكملت 3 جلسات</text>
+    <text x="210" y="152" font-family="Arial, sans-serif" font-size="17" fill="#5D7077">بقيت 30 دقيقة</text>
+
+    <g transform="translate(40 205)">
+      <rect width="440" height="54" rx="14" fill="#DFF1E7" stroke="#1C7A4A"/>
+      <circle cx="30" cy="27" r="13" fill="#1C7A4A"/>
+      <text x="58" y="34" font-family="Arial, sans-serif" font-size="20" fill="#10252B">الرياضيات</text>
+
+      <rect y="68" width="440" height="54" rx="14" fill="#F2F6F4" stroke="#D5E0DC"/>
+      <circle cx="30" cy="95" r="13" fill="#FFFFFF" stroke="#AFC0BA" stroke-width="3"/>
+      <text x="58" y="102" font-family="Arial, sans-serif" font-size="20" fill="#10252B">اللغة العربية</text>
+
+      <rect y="136" width="440" height="54" rx="14" fill="#F2F6F4" stroke="#D5E0DC"/>
+      <circle cx="30" cy="163" r="13" fill="#FFFFFF" stroke="#AFC0BA" stroke-width="3"/>
+      <text x="58" y="170" font-family="Arial, sans-serif" font-size="20" fill="#10252B">العلوم</text>
+    </g>
+  </g>
+
+  <g transform="translate(700 245)">
+    <rect width="570" height="405" rx="28" fill="#10252B"/>
+    <text x="40" y="62" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">ماذا يقدم التطبيق؟</text>
+
+    <g transform="translate(40 95)">
+      <rect width="490" height="82" rx="18" fill="#16382E"/>
+      <circle cx="42" cy="41" r="24" fill="#4EC988"/>
+      <text x="42" y="49" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#10252B">✓</text>
+      <text x="82" y="48" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">خطط مذاكرة يومية</text>
+
+      <rect y="98" width="490" height="82" rx="18" fill="#16382E"/>
+      <circle cx="42" cy="139" r="24" fill="#E0A42B"/>
+      <text x="42" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#10252B">★</text>
+      <text x="82" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">دروس واختبارات قصيرة</text>
+
+      <rect y="196" width="490" height="82" rx="18" fill="#16382E"/>
+      <circle cx="42" cy="237" r="24" fill="#FFFFFF"/>
+      <text x="42" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1C7A4A">%</text>
+      <text x="82" y="244" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">متابعة للمعلم وولي الأمر والمدير</text>
+    </g>
+  </g>
+
+  <rect x="130" y="690" width="1140" height="4" rx="2" fill="#D5E0DC"/>
+</svg>
